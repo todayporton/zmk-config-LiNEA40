@@ -112,6 +112,10 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         cpi = <800>;
+        // キー入力中 (ZMK active の間) はセンサーを RUN モードに保ち、
+        // タイピング後にボールを動かしたときの REST3 (500ms 周期) からの
+        // 復帰遅れをなくす。ZMK が idle になると通常の省電力動作に戻る
+        force-awake;
         settings-id = "trackball";
     };
 };
